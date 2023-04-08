@@ -1,0 +1,51 @@
+<div class="grid justify-center items-center h-screen w-screen">
+  <div
+    class="landingLayout flex flex-row justify-end rounded-2xl {{
+      formSelected == 'login' ? loginBg : registerBg
+    }}"
+  >
+    <div
+      class="startUpForms rounded-2xl flex flex-col  
+    {{ formSelected == 'login' ? pinkPanel : bluePanel }}"
+    >
+      <div class="flex m-0">
+        <h1 class="text-4xl ml-24 drop-shadow-lg font-extrabold tracking-tight text-pastel-pink-300 opacity-70 brandingFont">Batterzup</h1>
+      </div>
+      <div [ngSwitch]="formSelected" class="h-5/6">
+        <app-login *ngSwitchCase="'login'"></app-login>
+        <app-register *ngSwitchCase="'register'"></app-register>
+      </div>
+      <div
+        class="
+        flex 
+        flex-row 
+        m-2 
+        mb-6 
+        px-2 
+        py-1 
+        {{
+          formSelected == 'login' ? blueLandingButtonBg : landingButtonBg
+        }} rounded-xl"
+      >
+        <button
+          class="w-1/2 h-9 my-2 rounded-lg mx-1 font-bold tracking-tight 
+          {{ formSelected == 'register' && registerSelected }} 
+          {{ formSelected == 'login' && registerHover }}"
+          (click)="formSelected = 'register'"
+        >
+          Register
+        </button>
+        <button
+          class="w-1/2 h-9 my-2 rounded-lg mx-1 font-bold tracking-tight 
+          {{ formSelected == 'login' && loginSelected }}
+          {{ formSelected == 'register' && loginHover }}"
+          (click)="formSelected = 'login'"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

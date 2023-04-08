@@ -1,0 +1,7 @@
+.loginInput{
+  background-color: #ffa1c3;
+  box-shadow: inset 0 0 7px #ff669a;
+}
+.loginInput::placeholder{
+  color: #a90b2e
+}

@@ -1,4 +1,28 @@
-<p>login works!</p>
-<h1>Hey there</h1>
-
-<router-outlet></router-outlet>
+<div class="flex flex-row justify-center h-full items-center">
+  <form>
+    <div class="flex flex-col justify-center">
+      <label class="mb-1 text-xl text-pastel-pink-800 font-semibold"
+        >Username</label
+      >
+      <input class="p-2 loginInput rounded-md" placeholder="Enter Username" />
+    </div>
+    <div class="flex flex-col justify-center mt-4">
+      <label class="mb-1 text-xl text-pastel-pink-800 font-semibold"
+        >Password</label
+      >
+      <input
+        type="password"
+        class="p-2 loginInput rounded-md"
+        placeholder="Enter password"
+      />
+    </div>
+    <div class="flex flex-row justify-center mt-5">
+      <button
+        type="submit"
+        class="w-full h-8 border-2 border-pastel-pink-400 bg-pastel-pink-300 rounded-lg tracking-wide font-semibold text-pastel-pink-800 hover:bg-pastel-pink-200 drop-shadow-lg shadow-pastel-pink-700"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>

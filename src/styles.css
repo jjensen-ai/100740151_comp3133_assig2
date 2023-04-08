@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: content-box;
+}
+
+body {
+  background: #e0eafc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cfdef3,
+    #e0eafc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cfdef3,
+    #e0eafc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@font-face {
+  font-family: "Thunder";
+  src: 
+    /* IE6-IE8 */ url("./assets/fonts/Thunder-BoldLC.woff")
+      format("woff"),
+    /* Modern Browsers */ local("Thunder"),
+    url("./assets/fonts/Thunder-BoldLC.woff2") format("woff2"),
+    /* Modern Browsers */ local("Thunder"),
+    url("./assets/fonts/Thunder-BoldLC.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}

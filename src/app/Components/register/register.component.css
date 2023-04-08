@@ -1,0 +1,7 @@
+.registerInput {
+  background-color: #0cbde0;
+  box-shadow: inset 0 0 7px #175b73;
+}
+.registerInput::placeholder {
+  color: #175b73;
+}

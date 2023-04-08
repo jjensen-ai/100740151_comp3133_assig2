@@ -1,0 +1,62 @@
+.startUpForms {
+  height: 32rem;
+  width: 20rem;
+}
+
+.landingLayout {
+  width: 48rem;
+  height: 32rem;
+}
+
+.registerBg {
+  background: #1c92d2; /* fallback for old browsers */
+  background: url("src/assets/images/Register.png") no-repeat,
+    -webkit-linear-gradient(to top, #f2fcfe, #1c92d2); /* Chrome 10-25, Safari 5.1-6 */
+  background: url("src/assets/images/Register.png") no-repeat,
+    linear-gradient(to top, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: contain;
+}
+
+.loginBg {
+  background: #d9a7c7; /* fallback for old browsers */
+  background: url("src/assets/images/login.png") no-repeat,
+    -webkit-linear-gradient(to bottom, #fffcdc, #d9a7c7); /* Chrome 10-25, Safari 5.1-6 */
+  background: url("src/assets/images/login.png") no-repeat,
+    linear-gradient(to bottom, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: contain;
+}
+/* .landing {
+  background-color: #ffc8ddb3;
+} */
+.landingButtonBg {
+  background-color: #6be2f5;
+  box-shadow: inset 0 0 7px#0cbde0;
+}
+.blueLandingButtonBg {
+  background-color: #ffa1c3;
+  box-shadow: inset 0 0 7px #ff669a;
+}
+.loginSelected {
+  background-color: #ffc8dd;
+  box-shadow: -2px 6px #ff669a;
+}
+.registerButtonSelected {
+  background-color: #a7effa;
+  box-shadow: 2px 6px #0cbde0;
+}
+.registerHover:hover {
+  background-color: #ffc8dd;
+  box-shadow: 2px 6px #ff669a;
+}
+.loginHover:hover {
+  background-color: #a7effa;
+  box-shadow: -2px 6px #0cbde0;
+}
+
+.brandingFont {
+  font-family: "Thunder";
+  font-size: 105px;
+  rotate: 25deg;
+  /* color: #0d0f30; */
+}
