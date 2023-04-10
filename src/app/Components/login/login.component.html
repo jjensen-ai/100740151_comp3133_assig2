@@ -1,17 +1,15 @@
 <div class="flex flex-row justify-center h-full items-center">
   <form [formGroup]="loginForm">
     <div class="flex flex-col justify-center">
-      <div *ngFor="let validation of validationMessages.username">
+      <div *ngIf="username.invalid && username.dirty">
         <span
-          class="text-purple-heart-950"
-          *ngIf="
-            loginForm.get('username').hasError(validation.type) &&
-            loginForm.get('username').dirty
-          "
+          class="tracking-tighter text-pastel-pink-700 text-sm"
+          *ngIf="username.errors?.['required']"
         >
-          {{ validation.message }}
+          Username is required!
         </span>
       </div>
+
       <label class="mb-1 text-xl text-pastel-pink-800 font-semibold"
         >Username</label
       >
@@ -23,14 +21,18 @@
       />
     </div>
     <div class="flex flex-col justify-center mt-4">
-      <div *ngFor="let validation of validationMessages.password">
+      <div *ngIf="password.invalid && password.dirty">
         <span
-          *ngIf="
-            loginForm.get('password').hasError(validation.type) &&
-            loginForm.get('password').dirty
-          "
+          class="tracking-tighter text-pastel-pink-700 text-sm"
+          *ngIf="password.errors?.['required']"
         >
-          {{ validation.message }}
+          Password is Required!
+        </span>
+        <span
+          class="tracking-tighter text-pastel-pink-700 text-sm"
+          *ngIf="password.errors?.['minlength']"
+        >
+          Password needs to be at least 6 characters
         </span>
       </div>
       <label class="mb-1 text-xl text-pastel-pink-800 font-semibold"
@@ -52,6 +54,11 @@
       >
         Login
       </button>
+    </div>
+    <div class="flex flex-row justify-center mt-2" *ngIf="error">
+      <span class="text-sm font-bold text-pastel-pink-700">
+        Invalid login
+      </span>
     </div>
   </form>
 </div>

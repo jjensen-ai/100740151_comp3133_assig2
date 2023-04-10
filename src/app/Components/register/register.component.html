@@ -1,26 +1,69 @@
-
 <div class="flex flex-row justify-around">
-  <form>
+  <form [formGroup]="registerForm">
     <div class="flex flex-col justify-center mt-1">
-      <label class="mb-1 text-lg text-cerulean-800 font-semibold">Username</label>
-      <input placeholder="Enter Username" class="p-2 registerInput rounded-md">
+      <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <span *ngIf="username.errors?.['required']">
+          Username is required!
+        </span>
+      </div>
+      <label class="mb-1 text-lg text-cerulean-800 font-semibold"
+        >Username</label
+      >
+      <input
+        placeholder="Enter Username"
+        class="p-2 registerInput rounded-md"
+        formControlName="username"
+      />
     </div>
     <div class="flex flex-col justify-center mt-1">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <span *ngIf="email.errors?.['required']"> Username is required! </span>
+        <span *ngIf="email.errors?.['email']"> Enter a valid email </span>
+      </div>
       <label class="mb-1 text-lg text-cerulean-800 font-semibold">Email</label>
-      <input placeholder="Enter Valid Email" class="p-2 registerInput rounded-md">
+      <input
+        placeholder="Enter Valid Email"
+        class="p-2 registerInput rounded-md"
+        formControlName="email"
+      />
     </div>
     <div class="flex flex-col justify-center mt-1">
-      <label class="mb-1 text-lg text-cerulean-800 font-semibold">Password</label>
-      <input placeholder="Enter Password" class="p-2 registerInput rounded-md">
-    </div>
-    <div class="flex flex-col justify-center mt-1">
-      <label class="mb-1 text-lg text-cerulean-800 font-semibold">Password</label>
-      <input placeholder="Confirm Password" class="p-2 registerInput rounded-md">
+      <div *ngIf="password.invalid && password.dirty">
+        <span *ngIf="password.errors?.['required']">
+          Password is Required!
+        </span>
+        <span class="tracking-tighter" *ngIf="password.errors?.['minlength']">
+          Password needs to be at least 6 characters
+        </span>
+      </div>
+      <label class="mb-1 text-lg text-cerulean-800 font-semibold"
+        >Password</label
+      >
+      <input
+        placeholder="Enter Password"
+        class="p-2 registerInput rounded-md"
+        formControlName="password"
+      />
     </div>
     <div class="flex flex-row justify-center mt-4">
-      <button type="submit" class="w-full h-8 border-2 border-cerulean-400 bg-cerulean-300 rounded-lg tracking-wide font-semibold text-cerulean-800 hover:bg-cerulean-200 drop-shadow-lg shadow-cerulean-700">
+      <button
+        (click)="
+          signup(
+            this.registerForm.value.username,
+            this.registerForm.value.password,
+            this.registerForm.value.email
+          )
+        "
+        type="submit"
+        class="w-full h-8 border-2 border-cerulean-400 bg-cerulean-300 rounded-lg tracking-wide font-semibold text-cerulean-800 hover:bg-cerulean-200 drop-shadow-lg shadow-cerulean-700"
+      >
         Submit
       </button>
+    </div>
+    <div class="flex flex-row justify-center mt-2" *ngIf="message">
+      <span class="text-sm font-bold">
+        Successfully added {{ this.registerForm.value.username }}
+      </span>
     </div>
   </form>
 </div>

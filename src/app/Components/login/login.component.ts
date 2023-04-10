@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
+import { GraphQLError } from 'graphql';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/userServices/user.service';
 
@@ -17,45 +18,29 @@ import { UserService } from 'src/app/services/userServices/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup | any;
+  error: boolean = false;
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: this.formBuilder.control('', Validators.required),
-      password: this.formBuilder.control(
+    this.loginForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl(
         '',
-        Validators.compose([Validators.required, Validators.minLength(8)])
+        Validators.compose([Validators.required, Validators.minLength(6)])
       ),
     });
   }
 
-  validationMessages = {
-    username: [{ type: 'required', message: 'Username is required' }],
-    password: [
-      { type: 'required', message: 'Password is required' },
-      { type: 'minLength', message: 'Password is too short!' },
-    ],
-  };
-
-  validateForm(form: FormGroup) {
-    Object.keys(form.controls).forEach((field) => {
-      const control = form.get(field);
-      if (control instanceof FormControl) {
-        control.markAllAsTouched();
-      } else if (control instanceof FormGroup) {
-        this.validateForm(control);
-      }
-    });
+  get username() {
+    return this.loginForm.get('username');
+  }
+  get password() {
+    return this.loginForm.get('password');
   }
 
   login(username: string, password: string) {
     this.userService.login(username, password).subscribe(({ data }) => {
-      console.log(data.LOGIN);
       this.router.navigate(['/employees']);
     });
   }

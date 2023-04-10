@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { PropertyRead } from '@angular/compiler';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-landing',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing.component.css'],
 })
 export class LandingComponent {
-  formSelected = 'login';
+  @Input()formSelected = 'login';
   pinkPanel: string = 'bg-pastel-pink-300/30';
   bluePanel: string = 'bg-cerulean-100/20';
   loginBg: string = 'loginBg';
@@ -16,5 +17,5 @@ export class LandingComponent {
   landingButtonBg: string = 'landingButtonBg';
   blueLandingButtonBg: string = 'blueLandingButtonBg';
   loginHover: string = 'loginHover';
-  registerHover: string = 'registerHover'
+  registerHover: string = 'registerHover';
 }
